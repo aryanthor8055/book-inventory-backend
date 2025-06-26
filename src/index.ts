@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-// import bookRoutes from './routes/bookRoutes';
+import bookRoutes from './routes/bookRoutes';
 import { connectDB } from './utils/db';
 
 dotenv.config();
@@ -13,11 +13,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to database
 connectDB();
 
 // Routes
-// app.use('/api/books', bookRoutes);
+app.use('/api/books', bookRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
