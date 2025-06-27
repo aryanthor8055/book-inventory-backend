@@ -6,7 +6,8 @@ export interface IBook extends Document {
   gradeLevel?: string;
   subject?: string;
   series?: string;
-  coverImageUrl?: string;
+  coverImage?: Buffer;
+  coverImageType?: string;
   createdAt: Date;
 }
 
@@ -16,7 +17,8 @@ const bookSchema = new Schema<IBook>({
   gradeLevel: { type: String },
   subject: { type: String },
   series: { type: String },
-  coverImageUrl: { type: String },
+  coverImage: { type: Buffer },
+  coverImageType: { type: String },
   createdAt: { type: Date, default: Date.now }
 });
 
