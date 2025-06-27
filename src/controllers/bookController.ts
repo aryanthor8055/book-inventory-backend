@@ -90,3 +90,14 @@ export const searchBooks = async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Error searching books', error });
   }
 };
+
+
+export const deleteBook = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params
+    await Book.findByIdAndDelete(id)
+    res.json({ message: 'Book deleted successfully' })
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting book', error })
+  }
+}

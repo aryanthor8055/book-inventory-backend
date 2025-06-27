@@ -4,7 +4,8 @@ import {
   getBooks,
   addBook,
   processBookImage,
-  searchBooks
+  searchBooks,
+  deleteBook,
 } from '../controllers/bookController';
 
 const upload = multer({
@@ -27,5 +28,6 @@ router.get('/', getBooks);
 router.post('/', addBook);
 router.post('/process-image', upload.single('image'), processBookImage);
 router.get('/search', searchBooks);
+router.delete('/:id', deleteBook)
 
 export default router;
